@@ -1,0 +1,21 @@
+<section class="t-list">
+	<div class="container">
+		<a href="#/listas" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span></a>
+		<div class="list-new">
+			<form name="novaLista" ng-submit="submitNova(nova.titulo)" novalidate>
+				<div class="form-group" ng-class="{'has-error': formLogin.titulo.$dirty && formLogin.titulo.$invalid}"> 
+					<label for="exampleInputEmail1">Insira o Titulo da Lista</label>
+					<input type="text" class="form-control" name="titulo" placeholder="Titulo da Lista" ng-model="nova.titulo" required ng-maxlength=30  autofocus>	
+					<span class="help-block" ng-show="novaLista.titulo.$dirty && novaLista.titulo.$error.required">Este campo é obrigatório</span>		
+					<span class="help-block" ng-show="novaLista.titulo.$dirty && novaLista.titulo.$error.maxlength">N&atilde;o é permitido mais que 30 digitos</span>		
+				</div>
+		
+
+				<div class="text-center">
+					<button type="submit" class="btn btn-primary" ng-disabled="novaLista.$invalid">Criar</button>	
+				</div>
+			</form>
+		</div>
+		
+	</div>
+</section>

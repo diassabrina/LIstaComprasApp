@@ -1,0 +1,131 @@
+/*
+    PADRONIZAÇÃO DEFAULT BOOTSTRAP
+
+    * LABEL
+    * WELL
+    * BREADCRUMB
+    * PAGE-HEADER
+    * PANEL
+    * NAV
+    * MODAL
+*/
+
+// sets
+
+
+
+// modulos
+
+[class^="col-"],
+[class*="col-"]{
+    .transicao();
+}
+
+.help-block {
+    color: @color-danger;
+}
+
+
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: transparent !important;
+    border: 1px solid @line-default;
+    border-radius: 0px !important;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,.05);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,.05);
+}
+
+
+// formularios 
+form {
+    border-color: @line-default;
+    input[type="text"],
+    input[type="email"],
+    input[type="password"]{
+        //height: 46px !important;
+    }
+    &:focus{
+        border-color: @line-default;
+        -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,.05);
+        box-shadow: inset 0 0px 0px rgba(0,0,0,.05);
+    }
+    .input-group-btn {
+        .btn {
+        }//padding: 12px 12px;
+    }
+    
+}
+
+
+// formularios
+.form-control {
+   border-color: @line-default;
+   padding: 19px 12px;
+   text-transform: none;
+   .arredonda(0px);
+   &:focus{
+        border-color: @line-default;
+        -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,.05);
+        box-shadow: inset 0 0px 0px rgba(0,0,0,.05);
+    }
+}
+
+
+
+// botoes e icones
+
+.btn {
+    .arredonda(0px);    
+    outline: none;
+    background: #fff;
+    text-transform: uppercase;
+    padding: 9px 15px 9px;
+    background: transparent;
+     &:focus{
+        border-color: darken(@line-default, 20%);
+        -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,.05);
+        box-shadow: inset 0 0px 0px rgba(0,0,0,.05);
+    }
+    &:hover {
+        background: transparent;
+    }
+}
+
+.btn-default{ 
+    background-color: #fff !important;
+    color: lighten(@text-default,5%);    
+    border: 1px solid @line-default !important;
+    &:hover {
+        background: #D5DFE4 !important;
+    }
+}
+.btn-primary { 
+    background-color: @color-primary !important;
+    color: #fff !important;
+    border: transparent !important;
+    &:hover {        
+        background-color: darken(@color-primary, 15%) !important;
+    }
+}
+
+.btn-secondary { 
+    background-color: @color-secondary !important;
+    color: #61460B !important;
+    border: 1px solid darken(@color-secondary, 10%) !important;
+    &:hover {        
+        background-color: darken(@color-secondary, 9%) !important;
+    }
+}
+
+.btn-danger {      
+    color: #a94442;
+    background-color: #f2dede;
+    border: 1px solid #ebccd1 !important;
+    &:hover {        
+        
+        color: #a94442; 
+        background-color: darken(#f2dede, 9%) !important;
+    }
+}

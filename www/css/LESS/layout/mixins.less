@@ -1,0 +1,85 @@
+.divisor(@top, @bottom){
+     &:after {
+        content: "";
+        background: url("../images/divisor.png") no-repeat bottom center;
+        padding: @top @bottom;
+        display: block;
+        margin: auto auto 24px;
+        height: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+}
+
+//
+//==Bordas
+//
+.arredonda(@raio: 5px) {
+  -webkit-border-radius: @raio;
+     -moz-border-radius: @raio;
+          border-radius: @raio;
+}
+
+.gira(@giro: 45deg) {     
+    -ms-transform: rotate(@giro); /* IE 9 */
+    -webkit-transform: rotate(@giro); /* Chrome, Safari, Opera */
+    transform: rotate(@giro);
+}
+
+.seta-baixo(@tamanho: 15px, @posicao: 17px, @cor:#fff, @border: @line-default ) {
+   .gira();
+    position: absolute;
+    content:" ";
+    z-index: 99;
+    display: block;
+    width: @tamanho;
+    height: @tamanho;
+    bottom: -17px;
+    left: 50%;
+    margin-left: -10px;
+    
+    background-color:#fff;
+    border-bottom: 1px solid darken(@border, 15%);
+    border-right: 1px solid darken(@border, 15%);
+}
+
+//transicoes
+
+.transicao (@velocidade: 0.4s) {
+    -moz-transition: @velocidade;
+    -o-transition: @velocidade;
+    -webkit-transition: @velocidade;
+    transition: @velocidade;
+}
+.sombra (@a:0, @b:4px, @c:5px, @d: -1px, @dt:.3 ){
+    -webkit-box-shadow: @a @b @c @d rgba(0,0,0, @dt);
+     box-shadow: @a @b @c @d rgba(0,0,0, @dt)
+}
+
+.degrade-default (){    
+    background-image: linear-gradient(to bottom, #f9f9f9, #eaeaea);
+}
+.sprite-default (){
+    background-image: url('../img/sprites.png');
+    background-repeat: no-repeat;
+}
+
+.icon-default(){
+    font-family: 'Glyphicons Halflings';
+    position: absolute;
+    display: block;
+    margin-top: -8px;
+    pointer-events: none;
+}
+
+@-webkit-keyframes rodaroda {
+	from {
+		-webkit-transform:rotate(0deg);
+	}
+	to {
+		-webkit-transform:rotate(180deg);
+	}
+}
+
+

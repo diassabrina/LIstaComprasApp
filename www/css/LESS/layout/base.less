@@ -1,0 +1,76 @@
+/*********************************************************************************/
+/* CARACTERISTICAS GERAIS                                                        */
+/*********************************************************************************/
+
+/* ------- VARIAVEIS EM GERAL ------- */
+
+@font-size-default: 14px;
+@font-format-default: Normal 400;
+@font-family-default: 'Roboto Condensed', sans-serif;;
+
+@color-default:     #202020;
+@color-primary:     #4c5b72;
+@color-secondary:   #909da2;
+@color-tertiary:    #909da2;
+@color-danger:      #a94442;
+
+
+@text-default:     @color-default;
+@text-primary:     @color-primary;
+@text-secondary:   @color-secondary;
+@text-tertiary:   @color-secondary;
+
+@bg-default:            #c3c6cb;
+@line-default:          #d4d4d4;
+
+/* ------- ELEMENTOS ------- */
+
+body {
+    font-size: @font-size-default;
+    font-family: @font-family-default;
+    font-weight: normal ;
+    color: #555555 !important;
+}
+
+.main {
+    &:before {
+    
+    }
+}
+
+
+hr{
+    margin: 0;
+    border-color: @line-default;
+    &.dashed {
+        border-color: darken(@line-default,20%);
+        border-style: dashed;
+    }
+}
+
+a {
+    color:@text-default;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+label {
+    font-weight: normal;
+    font-size: 0.9em;
+}
+
+
+input, 
+button,
+select,
+textarea {    
+    padding: 5px;
+    text-transform: uppercase;
+    font-size: 14px;
+    border: 1px solid @line-default;   
+    vertical-align: middle;
+}
+
+input{ padding: 9px 9px 7px;}
+

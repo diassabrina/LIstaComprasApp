@@ -1,0 +1,51 @@
+<section class="t-list" ng-init="abrirLista()">
+	<div class="container">
+
+		<a href="#/lista-detalhe/{{listAtual.id}}" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span></a>
+		<div class="list-detail">
+			<form class="form-inline">
+
+				<div class="list-detail-title">
+					<input type="text" ng-model="atualizatitulo" value="{{listAtual.titulo}}" placeholder="{{listAtual.titulo}}" required>
+					<ul class="list-inline pull-right">
+						<li><a href="#/lista-detalhe/{{listAtual.id}}"><span class="glyphicon glyphicon-remove"></span></a></li>
+						<li><a href="#" ng-click="atualizaLista(listAtual.id, atualizatitulo, listAtual.id)" ><span class="glyphicon glyphicon-ok"></span></a></li>
+					</ul>
+				</div>
+				
+				<div class="list-detail-aviso alert alert-warning" ng-show="!itens.length"><b>Utilize o campo abaixo para inserir itens à sua lista!</b></div>
+
+				<ul class="list-detail-itens list-unstyled" ng-show="itens.length">
+					<li ng-repeat="item in itens">
+
+						<a href="#" class="displayBlock" ng-click="excluiItem(item.id,listAtual.id)">
+							<span class="done-{{item.done}}">{{item.item}}</span>
+							<span class="glyphicon glyphicon-trash pull-right"></span>
+						</a>
+					</li>
+				</ul>
+
+				
+			</form>
+		</div>
+	</div>
+</section>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body text-center">
+				<p>Deseja realmente excluir a lista <b>{{listAtual.titulo}}</b></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+				<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="excluiLista(listAtual.id)">Excluir</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

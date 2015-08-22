@@ -1,0 +1,58 @@
+<section class="t-list" ng-init="abrirLista()">
+	<div class="container">
+		<a href="#/listas" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span></a>
+		<div class="list-detail">
+			<form class="form-inline">
+
+				<div class="list-detail-title">
+					<h1 class="pull-left"><b>{{listAtual.titulo}} </b></h1> <!-- [ {{itens.remaining()}} of {{itens.length}}] -->
+					<ul class="list-inline pull-right">
+						<li><a href="#/editar-lista/{{listAtual.id}}"><span class="glyphicon glyphicon-pencil"></span></a></li>
+						<li><button  data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-trash"></span></button></li>
+					</ul>
+				</div>
+				
+				<div class="list-detail-aviso alert alert-warning" ng-show="!itens.length"><b>Utilize o campo abaixo para inserir itens à sua lista!</b></div>
+
+				<ul class="list-detail-itens list-unstyled" ng-show="itens.length">
+					<li ng-repeat="item in itens">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox"  ng-checked"!item.done" ng-model="item.done" ng-click="checaItem(item.id, item.done,listAtual.id )"> <span class="done-{{item.done}}">{{item.item}}</span>
+							</label>
+						</div>
+					</li>
+				</ul>
+
+				<div class="list-detail-insert">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Inserir Item" ng-model="nomeNovoItem">
+						<span class="input-group-btn">
+							<button class="btn btn-primary" type="button" ng-click="inserirItem(nomeNovoItem, listAtual.id)">Inserir</button>
+						</span>
+					</div>
+					
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body text-center">
+				<p>Deseja realmente excluir a lista <b>{{listAtual.titulo}}</b></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+				<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="excluiLista(listAtual.id)">Excluir</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

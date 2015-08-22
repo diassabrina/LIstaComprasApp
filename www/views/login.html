@@ -1,0 +1,37 @@
+<section class="t-login">
+	<div class="container">
+
+		<!-- logotipo -->
+		<picture >
+	        <img src="img/logo-big.png" class="login-logo" alt="Logotipo Bluesoft">
+	    </picture>
+		
+		<!-- formulario de login -->
+		<form name="formLogin" ng-submit="submitLogin(formLogin.$valid)" novalidate>
+
+
+			<div class="form-group" ng-class="{'has-error': formLogin.email.$dirty && formLogin.email.$invalid}" >
+				<input type="email" name="email" class="form-control" placeholder="EMAIL" ng-model="login.email" required autofocus>
+            	<span class="help-block" ng-show="formLogin.email.$invalid && !formLogin.email.$pristine">Este campo é obrigatório</span>            	
+			</div>
+
+			<div class="form-group" ng-class="{'has-error': formLogin.senha.$dirty && formLogin.senha.$invalid}">
+				<input type="password" name="senha" class="form-control" placeholder="SENHA" ng-model="login.senha" required>
+				<span class="help-block" ng-show="formLogin.senha.$dirty && formLogin.senha.$error.required">Este campo é obrigatório</span>
+			</div>
+			
+			<div class="clearfix">
+				<a href="#" class="login-link pull-left">Cadastrar</a>
+				<a href="#" class="login-link pull-right">Esqueci minha senha</a>					
+			</div>
+
+			<div class="text-center">
+				<button type="submit" class="btn btn-primary" ng-disabled="formLogin.$invalid">Entrar</button>	
+			</div>
+			
+		</form>
+
+	</div>
+	
+</section>
+

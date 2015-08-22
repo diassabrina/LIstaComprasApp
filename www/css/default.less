@@ -1,0 +1,72 @@
+        /*      
+  Cliente: 
+  Projeto: Lista de Compras - Bluesoft      
+
+  --------------            
+  PADRÕES DE CODIGO - Bootstrap v3.3.1
+  --------------
+*/
+
+
+
+/*********************************************************************************/
+/* Base                                                                          */
+/*********************************************************************************/
+/*
+    Normalize - Arquivo de sets para padrozinição de elementos e corpo (PADRÃO)
+    Fonts - Fonts especiais e font icon         
+    resets - Auxiliar para Normalize
+*/
+
+@import "less/base/normalize.less";
+@import "less/base/fonts.less";
+@import "less/base/resets.less";
+
+
+
+
+/********************************************************** ***********************/
+/* Modulos                                                                       */
+/*********************************************************************************/
+/*
+    Modulo Framework - Sets e resest do BOOTSTRAP
+    Modulo Padrao - Modulos e Comportamento
+    
+*/
+            
+@import "less/modulos/modulo-framework.less";   
+@import "less/modulos/modulo-padrao.less";
+    
+
+
+/*********************************************************************************/
+/* layout                                                                     */
+/*********************************************************************************/
+/*   
+    Base - Cores Padrão / Fontes: estilo, familia e formato / Elementos (NAV, LABELS e ETC)  
+    Mixins - Funções Gerais reutilizaveis
+*/
+                    
+@import "less/layout/grid.less";
+@import "less/layout/base.less";
+@import "less/layout/mixins.less";
+@import "less/layout/classes-funcionais.less";
+
+/*********************************************************************************/
+/* Layout                                                                        */
+/*********************************************************************************/
+
+/*    
+    Paginas Especificas:
+        Header
+        Home
+        Produtos
+        Lista de Desejos
+        Cart
+        Pop up
+        Footer
+*/
+@import "less/themes/index.less";
+@import "less/themes/header.less";
+@import "less/themes/login.less";
+@import "less/themes/listas.less";
