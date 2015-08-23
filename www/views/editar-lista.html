@@ -3,16 +3,22 @@
 
 		<a href="#/lista-detalhe/{{listAtual.id}}" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span></a>
 		<div class="list-detail">
-			<form class="form-inline">
+			<form name="formAltera" class="form-inline" novalidate>
 
 				<div class="list-detail-title">
-					<input type="text" ng-model="atualizatitulo" value="{{listAtual.titulo}}" placeholder="{{listAtual.titulo}}" required>
+					<input type="text" ng-model="atualizatitulo" name="titulo" value="{{listAtual.titulo}}" placeholder="{{listAtual.titulo}}" required >					
+
 					<ul class="list-inline pull-right">
-						<li><a href="#/lista-detalhe/{{listAtual.id}}"><span class="glyphicon glyphicon-remove"></span></a></li>
-						<li><a href="#" ng-click="atualizaLista(listAtual.id, atualizatitulo, listAtual.id)" ><span class="glyphicon glyphicon-ok"></span></a></li>
+						<li><a class="btn btn-default" href="#/lista-detalhe/{{listAtual.id}}"><span class="glyphicon glyphicon-remove"></span></a></li>
+						<li>
+
+							<button  ng-class="{'color-disabled': formAltera.$invalid}" class="btn btn-default" ng-click="atualizaLista(listAtual.id, atualizatitulo, listAtual.id)" ng-disabled="formAltera.titulo.$error.required">
+								<span  class="glyphicon glyphicon-ok"></span>
+							</button>
+						</li>
 					</ul>
 				</div>
-				
+				<span class="help-block" ng-show="formAltera.titulo.$dirty && formAltera.titulo.$error.required">Preencha o campo corretamente</span>
 				<div class="list-detail-aviso alert alert-warning" ng-show="!itens.length"><b>Utilize o campo abaixo para inserir itens à sua lista!</b></div>
 
 				<ul class="list-detail-itens list-unstyled" ng-show="itens.length">

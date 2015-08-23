@@ -93,6 +93,10 @@ angular
                             'value': $routeParams.lista_id
                         }
                     }).then(function(retorno2) {
+                        $scope.db.update("list", {"qtd": retorno2.rows.length}, {
+                            'id': $routeParams.lista_id
+                        })
+
                         $scope.itens = [];
                          $scope.checados = [];
                         for(var i=0; i < retorno2.rows.length; i++){
@@ -108,8 +112,8 @@ angular
                                 'id': $routeParams.lista_id
                             })
 
+
                             if(retorno2.rows.item(i).done== "true"){
-                                console.log(retorno2.rows.item(i).done);
                                 $scope.checados.push({                                    
                                     id: retorno2.rows.item(i).id,
                                 });
@@ -117,11 +121,15 @@ angular
 
                             retorno2.rows.item(i);
                         }
+
+                        // itens checados
+                         $scope.checadosGeral = $scope.checados.length;
                     });
                 } else {
                     $location.path('/listas');
                 }
             });
+
         };
 
         // insere novo intem
@@ -176,6 +184,19 @@ angular
             }).then(function(results) {
                 
                 $location.path('/lista-detalhe/'+idLista);
+                // $scope.checadosGeral = $scope.listAtual.done;
+
+                 
+                $scope.db.select('list_itens', {
+                    'list_id': {
+                        'value': $routeParams.lista_id,
+                        "union":'AND'
+                    },
+                    'done': 'true'
+                }).then(function(retorno) {
+                    $scope.checadosGeral = retorno.rows.length;
+                })
+
 
             }); 
        
@@ -205,10 +226,5 @@ angular
        
         };
         
-    })
-    // .controller('CtrlDetalheLista', function($scope, $location, $routeParams, $webSql) {
-    //     console.log($routeParams.lista_id);
-    // })
-    ;
-
+    });
 

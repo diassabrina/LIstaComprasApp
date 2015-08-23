@@ -2,13 +2,19 @@
 	<div class="container">
 		<a href="#/listas" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span></a>
 		<div class="list-detail">
-			<form class="form-inline">
+			<form name="formDetalhe" class="form-inline" novalidate>
 
+				
 				<div class="list-detail-title">
-					<h1 class="pull-left"><b>{{listAtual.titulo}} </b></h1> <!-- [ {{itens.remaining()}} of {{itens.length}}] -->
+					<h1 class="pull-left">
+						<b>{{listAtual.titulo}}&nbsp &nbsp</b> 
+						<span ng-model="checadosGeral">{{checadosGeral}}</span>
+						&nbsp de &nbsp
+						<span>{{itens.length}}</span>
+					</h1> <!-- [ {{itens.remaining()}} of {{itens.length}}] -->
 					<ul class="list-inline pull-right">
-						<li><a href="#/editar-lista/{{listAtual.id}}"><span class="glyphicon glyphicon-pencil"></span></a></li>
-						<li><button  data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-trash"></span></button></li>
+						<li><a href="#/editar-lista/{{listAtual.id}}" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></a></li>
+						<li><button  class="btn btn-default" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-trash"></span></button></li>
 					</ul>
 				</div>
 				
@@ -18,17 +24,17 @@
 					<li ng-repeat="item in itens">
 						<div class="checkbox">
 							<label>
-								<input type="checkbox"  ng-checked"!item.done" ng-model="item.done" ng-click="checaItem(item.id, item.done,listAtual.id )"> <span class="done-{{item.done}}">{{item.item}}</span>
+								<input type="checkbox"  ng-checked"item.done" ng-model="item.done" ng-click="checaItem(item.id, item.done,listAtual.id )"> <span class="done-{{item.done}}">{{item.item}}</span>
 							</label>
 						</div>
 					</li>
 				</ul>
 
-				<div class="list-detail-insert">
+				<div class="list-detail-insert text-center">
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Inserir Item" ng-model="nomeNovoItem">
+						<input type="text" class="form-control" name="insereItem" placeholder="Inserir Item" ng-model="nomeNovoItem" required>
 						<span class="input-group-btn">
-							<button class="btn btn-primary" type="button" ng-click="inserirItem(nomeNovoItem, listAtual.id)">Inserir</button>
+							<button class="btn btn-primary" type="button" ng-click="inserirItem(nomeNovoItem, listAtual.id)" ng-disabled="formDetalhe.insereItem.$error.required">Inserir</button>
 						</span>
 					</div>
 					
