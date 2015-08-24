@@ -16,6 +16,10 @@
             margin: 12px 0 20px;
             border: 1px solid @line-default;
             padding: 5px 7px 7px;
+            background: #ea9535 !important;
+            a{
+                color: #713F07 !important;
+            }
             .glyphicon {
             }
         }
@@ -55,11 +59,11 @@
             padding: 10px;
             margin-top: 20px;
             border: 1px solid @line-default;
-            background: lighten(@bg-default, 10%);
+            background: @bg-default;
             h1{            
                 font-size: 1em;
-                text-transform: uppercase;
-                padding-top: 10px;
+                text-transform: uppercase;                
+                padding: 10px 0;
             }
             .list-inline{
                 margin: 0;
@@ -101,7 +105,19 @@
             left: 0;
             width: 100%;
             padding: 10px;
-            background: @bg-default;
+            // background: lighten(@bg-default, 10%);
+            background: @color-primary;
+            border-top: 1px solid @line-default;
+            @media screen and (min-width: @screen-sm-min) {
+               .form-control {
+                    width: 360px;   
+                    &:focus{
+                        border: 1px solid darken(@line-default, 15%);                    
+                    }
+                }
+            }
+            
+            
         }
         
     }
@@ -111,7 +127,7 @@
     
     .list-new {
         margin-top: 30px;
-        background-color: lighten(@bg-default, 15%);
+        background-color: @bg-default;
         padding: 20px;
         .form-group {        
             label   {        

@@ -25,6 +25,9 @@
     color: @color-danger;
 }
 
+.container {
+    max-width: 700px;    
+}
 
 .well {
     min-height: 20px;
@@ -94,11 +97,12 @@ form {
 }
 
 .btn-default{ 
-    background-color: #fff !important;
-    color: lighten(@text-default,5%);    
-    border: 1px solid @line-default !important;
+    background-color:@bg-default;
+    color: darken(@bg-default, 50%);    
+    border: 1px solid darken(@bg-default, 8%) !important;
     &:hover {
-        background: #D5DFE4 !important;
+        background:  darken(@bg-default, 8%) !important;
+        color: darken(@bg-default, 60%); 
     }
 }
 .btn-primary { 
@@ -106,7 +110,7 @@ form {
     color: #fff !important;
     border: transparent !important;
     &:hover {        
-        background-color: darken(@color-primary, 15%) !important;
+        background-color: darken(@color-primary, 5%) !important;
     }
 }
 

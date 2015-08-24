@@ -2,15 +2,15 @@
 	<div class="container">
 		<div class="list-all">
 			<h1 class="pull-left"><span class="glyphicon glyphicon-th-list"></span> Minhas Listas</h1>
-			<div class="list-btn-edit pull-right">
-				<a href="#/nova-lista" class="list-incluir-item"><span class="glyphicon glyphicon-plus"></span> Nova Lista </a>
+			<div class="list-btn-edit color-secondary pull-right">
+				<a href="#/nova-lista" class="list-incluir-item "><span class="glyphicon glyphicon-plus"></span> Nova Lista </a>
 				<!-- <a href="#" class="list-incluir-item"><span class="glyphicon glyphicon-trash"></span></a> -->
 			</div>
 			
 			<div class="list-detail-aviso alert alert-warning clearfix" ng-show="!lists.length">Nenhuma lista cadastrada! <br><b>Para criar sua lista clique em "Nova Lista"! </b></div>
 
 			<ul class="list-access list-unstyled clear-fix" >			
-				<li ng-repeat="list in lists" ><a href="#/lista-detalhe/{{list.id}}">{{list.titulo}} <span class="pull-right badge color-primary">{{list.qtd}}</span></a></li>
+				<li ng-repeat="list in lists" ><a href="#/lista-detalhe/{{list.id}}">{{list.titulo}} <span class="pull-right badge color-secondary">{{list.qtd}}</span></a></li>
 			</ul>
 		</div>
 		

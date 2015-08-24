@@ -15,7 +15,7 @@
 						<span ng-model="checadosGeral">{{checadosGeral}}</span>
 						&nbsp de &nbsp
 						<span>{{itens.length}}</span>
-					</h1> <!-- [ {{itens.remaining()}} of {{itens.length}}] -->
+					</h1> 
 					
 				</div>
 				
@@ -33,9 +33,9 @@
 
 				<div class="list-detail-insert text-center">
 					<div class="input-group">
-						<input type="text" class="form-control" name="insereItem" placeholder="Inserir Item" ng-model="nomeNovoItem" required>
+						<input type="text" class="form-control" name="insereItem" placeholder="Inserir Item" ng-model="nomeNovoItem" required tabindex="1">
 						<span class="input-group-btn">
-							<button class="btn btn-primary" type="button" ng-click="inserirItem(nomeNovoItem, listAtual.id)" ng-disabled="formDetalhe.insereItem.$error.required">Inserir</button>
+							<button class="btn btn-secondary" ng-class="{'color-disabled': formDetalhe.insereItem.$error.required}" type="button" ng-click="inserirItem(nomeNovoItem, listAtual.id)" ng-disabled="formDetalhe.insereItem.$error.required" tabindex="2">Inserir</button>
 						</span>
 					</div>
 					

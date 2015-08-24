@@ -37,7 +37,11 @@ angular
                 templateUrl : 'views/editar-lista.html',
                 controller  : 'CtrlLista',
             })
-            .otherwise ({ redirectTo: '/' });
+            .when('/esqueci-senha', {
+                templateUrl : 'views/esqueci-senha.html',
+                controller  : 'CtrlLogin',
+            })
+            .otherwise ({ redirectTo: '/listas' });
 
     })
     .controller('CtrlLogin', function($scope, $webSql) {
@@ -56,6 +60,7 @@ angular
         $scope.listAtual = [];
         $scope.itens = [];
         $scope.checados = [];
+        $scope.teste = "sfs";
 
         // carrega lista existente
         $scope.carregarListas = function() {
